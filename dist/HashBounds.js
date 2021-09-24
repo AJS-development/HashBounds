@@ -4,7 +4,7 @@
  Author: Andrews54757
  License: MIT (https://github.com/ThreeLetters/HashBounds/blob/master/LICENSE)
  Source: https://github.com/ThreeLetters/HashBounds
- Build: v5.0.2
+ Build: v5.0.3
  Built on: 24/09/2021
 */
 
@@ -216,6 +216,7 @@ TreeBucket.QUADS = [
   [0, 2],
   [1, 3]
 ]
+
 
 /**
  * HashGrid.
@@ -492,6 +493,7 @@ class HashGrid {
     return true
   }
 }
+
 
 /**
  * HashBounds
@@ -878,3 +880,4 @@ HashBounds.convertBounds = function (bounds) {
     throw new Error('Invalid bounds!')
   }
 }
+

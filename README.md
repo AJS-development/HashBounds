@@ -175,7 +175,7 @@ myData.remove(entry);
 
 ## BoundsPS
 
-[src/HashBounds.js:72-72](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L26-L33 "Source code on GitHub")
+[src/HashBounds.js:72-72](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L26-L33 "Source code on GitHub")
 
 A 2d bounding box represented by a point and sizes.
 
@@ -190,7 +190,7 @@ Type: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Globa
 
 ## BoundsMM
 
-[src/HashBounds.js:72-72](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L35-L42 "Source code on GitHub")
+[src/HashBounds.js:72-72](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L35-L42 "Source code on GitHub")
 
 A 2d bounding box represented by min/max points.
 
@@ -205,7 +205,7 @@ Type: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Globa
 
 ## Bounds
 
-[src/HashBounds.js:72-72](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L44-L47 "Source code on GitHub")
+[src/HashBounds.js:72-72](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L44-L47 "Source code on GitHub")
 
 An object representing a 2d bounding box.
 
@@ -213,7 +213,7 @@ Type: ([BoundsPS](#boundsps) | [BoundsMM](#boundsmm))
 
 ## Entry
 
-[src/HashBounds.js:72-72](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L49-L52 "Source code on GitHub")
+[src/HashBounds.js:72-72](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L49-L52 "Source code on GitHub")
 
 Represents an entry
 
@@ -221,7 +221,7 @@ Type: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Globa
 
 ## EntryCache
 
-[src/HashBounds.js:72-72](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L54-L57 "Source code on GitHub")
+[src/HashBounds.js:72-72](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L54-L57 "Source code on GitHub")
 
 Represents an entry's cache object
 
@@ -229,7 +229,7 @@ Type: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Globa
 
 ## ForEachCallback
 
-[src/HashBounds.js:72-72](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L59-L63 "Source code on GitHub")
+[src/HashBounds.js:72-72](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L59-L63 "Source code on GitHub")
 
 Callback function used in .forEach() calls
 
@@ -241,7 +241,7 @@ Type: [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Sta
 
 ## EveryCallback
 
-[src/HashBounds.js:72-72](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L65-L70 "Source code on GitHub")
+[src/HashBounds.js:72-72](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L65-L70 "Source code on GitHub")
 
 Callback function used in .every() calls
 
@@ -255,7 +255,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ## HashBounds
 
-[src/HashBounds.js:80-361](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L80-L361 "Source code on GitHub")
+[src/HashBounds.js:80-361](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L80-L361 "Source code on GitHub")
 
 HashBounds
 
@@ -271,7 +271,7 @@ It is particularily efficient when objects have varying sizes. Constant time ins
 
 ### getQueryID
 
-[src/HashBounds.js:113-119](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L113-L119 "Source code on GitHub")
+[src/HashBounds.js:113-119](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L113-L119 "Source code on GitHub")
 
 Returns an incremented number used to filter non-unique entries during search queries.
 
@@ -279,19 +279,19 @@ Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
 ### setupLog2
 
-[src/HashBounds.js:124-131](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L124-L131 "Source code on GitHub")
+[src/HashBounds.js:124-131](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L124-L131 "Source code on GitHub")
 
 Initializes a dictionary of ceiled log2 values that are frequently used by the data structure
 
 ### createLevels
 
-[src/HashBounds.js:136-150](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L136-L150 "Source code on GitHub")
+[src/HashBounds.js:136-150](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L136-L150 "Source code on GitHub")
 
 Initializes the basic hierarchical structure of levels.
 
 ### initializeArea
 
-[src/HashBounds.js:155-157](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L155-L157 "Source code on GitHub")
+[src/HashBounds.js:155-157](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L155-L157 "Source code on GitHub")
 
 Pre-initializes an area according to some bounds
 
@@ -301,25 +301,25 @@ Pre-initializes an area according to some bounds
 
 ### init
 
-[src/HashBounds.js:162-165](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L162-L165 "Source code on GitHub")
+[src/HashBounds.js:162-165](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L162-L165 "Source code on GitHub")
 
 Initializes the data structure and pre-initializes area if applicable
 
 ### clear
 
-[src/HashBounds.js:170-174](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L170-L174 "Source code on GitHub")
+[src/HashBounds.js:170-174](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L170-L174 "Source code on GitHub")
 
 Clear the data structure and reinitialize it.
 
 ### prune
 
-[src/HashBounds.js:179-181](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L179-L181 "Source code on GitHub")
+[src/HashBounds.js:179-181](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L179-L181 "Source code on GitHub")
 
 Removes empty buckets.
 
 ### update
 
-[src/HashBounds.js:191-207](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L191-L207 "Source code on GitHub")
+[src/HashBounds.js:191-207](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L191-L207 "Source code on GitHub")
 
 Updates the entry when its bounds have changed.
 
@@ -336,7 +336,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ### getLevel
 
-[src/HashBounds.js:216-229](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L216-L229 "Source code on GitHub")
+[src/HashBounds.js:216-229](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L216-L229 "Source code on GitHub")
 
 Gets the level index the entry should belong to with the appropriate bounding box.
 
@@ -349,7 +349,7 @@ Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
 ### insert
 
-[src/HashBounds.js:238-264](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L238-L264 "Source code on GitHub")
+[src/HashBounds.js:238-264](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L238-L264 "Source code on GitHub")
 
 Inserts a entry with a specified 2d bounding box.
 
@@ -364,7 +364,7 @@ Inserts a entry with a specified 2d bounding box.
 
 ### remove
 
-[src/HashBounds.js:272-277](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L272-L277 "Source code on GitHub")
+[src/HashBounds.js:272-277](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L272-L277 "Source code on GitHub")
 
 Removes an entry.
 
@@ -378,7 +378,7 @@ Removes an entry.
 
 ### contains
 
-[src/HashBounds.js:284-286](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L284-L286 "Source code on GitHub")
+[src/HashBounds.js:284-286](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L284-L286 "Source code on GitHub")
 
 Returns true if the entry is present.
 
@@ -390,7 +390,7 @@ Returns **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ### getHashCache
 
-[src/HashBounds.js:293-295](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L293-L295 "Source code on GitHub")
+[src/HashBounds.js:293-295](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L293-L295 "Source code on GitHub")
 
 Returns the cache object from a entry
 
@@ -402,7 +402,7 @@ Returns **[EntryCache](#entrycache)**
 
 ### toArray
 
-[src/HashBounds.js:302-312](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L302-L312 "Source code on GitHub")
+[src/HashBounds.js:302-312](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L302-L312 "Source code on GitHub")
 
 Retrieves an array of unique entries that may overlap with a 2d bounding box.
 
@@ -414,7 +414,7 @@ Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Gl
 
 ### every
 
-[src/HashBounds.js:323-330](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L323-L330 "Source code on GitHub")
+[src/HashBounds.js:323-330](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L323-L330 "Source code on GitHub")
 
 Iterates through unique entries that may overlap with a 2d bounding box. Iteration may be stopped.
 
@@ -429,7 +429,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ### forEach
 
-[src/HashBounds.js:340-350](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L340-L350 "Source code on GitHub")
+[src/HashBounds.js:340-350](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L340-L350 "Source code on GitHub")
 
 Iterates through unique entries that may overlap with a 2d bounding box. Iteration cannot be stopped.
 
@@ -442,7 +442,7 @@ Similar to Array.forEach
 
 ### boundsFitsInHash
 
-[src/HashBounds.js:357-360](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L357-L360 "Source code on GitHub")
+[src/HashBounds.js:357-360](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L357-L360 "Source code on GitHub")
 
 Check if bounds exceeds the pre-initialized size of the datastructure
 
@@ -454,7 +454,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ### mmToPS
 
-[src/HashBounds.js:368-373](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L368-L373 "Source code on GitHub")
+[src/HashBounds.js:368-373](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L368-L373 "Source code on GitHub")
 
 Converts a min-max 2d bound to pos-size format in place
 
@@ -464,7 +464,7 @@ Converts a min-max 2d bound to pos-size format in place
 
 ### psToMM
 
-[src/HashBounds.js:379-385](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L379-L385 "Source code on GitHub")
+[src/HashBounds.js:379-385](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L379-L385 "Source code on GitHub")
 
 Converts a pos-size 2d bound to min-max format in place
 
@@ -474,7 +474,7 @@ Converts a pos-size 2d bound to min-max format in place
 
 ### boundsOverlap
 
-[src/HashBounds.js:393-395](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L393-L395 "Source code on GitHub")
+[src/HashBounds.js:393-395](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L393-L395 "Source code on GitHub")
 
 Checks if two 2d bounding boxes are overlapping.
 
@@ -487,7 +487,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ### boundsContains
 
-[src/HashBounds.js:403-405](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L403-L405 "Source code on GitHub")
+[src/HashBounds.js:403-405](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L403-L405 "Source code on GitHub")
 
 Checks if one 2d bounding box is fully contained in another.
 
@@ -500,7 +500,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ### truncateBounds
 
-[src/HashBounds.js:416-435](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L416-L435 "Source code on GitHub")
+[src/HashBounds.js:416-435](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L416-L435 "Source code on GitHub")
 
 Truncates bounds to fit a certain area
 
@@ -518,7 +518,7 @@ Truncates bounds to fit a certain area
 
 ### convertBounds
 
-[src/HashBounds.js:442-458](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashBounds.js#L442-L458 "Source code on GitHub")
+[src/HashBounds.js:442-458](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashBounds.js#L442-L458 "Source code on GitHub")
 
 Formats/converts 2d bounding boxes.
 
@@ -532,7 +532,7 @@ Formats/converts 2d bounding boxes.
 
 ## HashGrid
 
-[src/HashGrid.js:34-302](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashGrid.js#L34-L302 "Source code on GitHub")
+[src/HashGrid.js:34-302](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashGrid.js#L34-L302 "Source code on GitHub")
 
 HashGrid.
 
@@ -546,7 +546,7 @@ Allows for constant time insertion and deletion by using Math.floor(X / gridSize
 
 ### initializeArea
 
-[src/HashGrid.js:53-64](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashGrid.js#L53-L64 "Source code on GitHub")
+[src/HashGrid.js:53-64](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashGrid.js#L53-L64 "Source code on GitHub")
 
 Pre-initializes buckets in a 2d bounding box. While these bounds are not strictly enforced for entries, pre-initialization will increase performance.
 
@@ -556,7 +556,7 @@ Pre-initializes buckets in a 2d bounding box. While these bounds are not strictl
 
 ### deleteBucket
 
-[src/HashGrid.js:71-77](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashGrid.js#L71-L77 "Source code on GitHub")
+[src/HashGrid.js:71-77](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashGrid.js#L71-L77 "Source code on GitHub")
 
 Deletes a bucket from the bucket grid.
 
@@ -567,7 +567,7 @@ Deletes a bucket from the bucket grid.
 
 ### setBucket
 
-[src/HashGrid.js:85-92](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashGrid.js#L85-L92 "Source code on GitHub")
+[src/HashGrid.js:85-92](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashGrid.js#L85-L92 "Source code on GitHub")
 
 Inserts a bucket into the bucket grid.
 
@@ -579,7 +579,7 @@ Inserts a bucket into the bucket grid.
 
 ### getBucket
 
-[src/HashGrid.js:100-103](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashGrid.js#L100-L103 "Source code on GitHub")
+[src/HashGrid.js:100-103](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashGrid.js#L100-L103 "Source code on GitHub")
 
 Gets a bucket from the bucket grid
 
@@ -592,7 +592,7 @@ Returns **[TreeBucket](#treebucket)**
 
 ### createBucket
 
-[src/HashGrid.js:111-135](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashGrid.js#L111-L135 "Source code on GitHub")
+[src/HashGrid.js:111-135](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashGrid.js#L111-L135 "Source code on GitHub")
 
 Creates, initializes, and returns a bucket at a certain position. Any parent buckets will be created.
 
@@ -605,13 +605,13 @@ Returns **[TreeBucket](#treebucket)**
 
 ### prune
 
-[src/HashGrid.js:140-150](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashGrid.js#L140-L150 "Source code on GitHub")
+[src/HashGrid.js:140-150](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashGrid.js#L140-L150 "Source code on GitHub")
 
 Prunes empty buckets.
 
 ### pruneBucket
 
-[src/HashGrid.js:156-169](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashGrid.js#L156-L169 "Source code on GitHub")
+[src/HashGrid.js:156-169](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashGrid.js#L156-L169 "Source code on GitHub")
 
 Prunes an empty bucket and its empty parents.
 
@@ -621,7 +621,7 @@ Prunes an empty bucket and its empty parents.
 
 ### update
 
-[src/HashGrid.js:178-196](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashGrid.js#L178-L196 "Source code on GitHub")
+[src/HashGrid.js:178-196](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashGrid.js#L178-L196 "Source code on GitHub")
 
 Updates a entry.
 
@@ -635,7 +635,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ### insert
 
-[src/HashGrid.js:208-239](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashGrid.js#L208-L239 "Source code on GitHub")
+[src/HashGrid.js:208-239](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashGrid.js#L208-L239 "Source code on GitHub")
 
 Inserts a entry.
 
@@ -651,7 +651,7 @@ Inserts a entry.
 
 ### remove
 
-[src/HashGrid.js:245-257](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashGrid.js#L245-L257 "Source code on GitHub")
+[src/HashGrid.js:245-257](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashGrid.js#L245-L257 "Source code on GitHub")
 
 Removes a entry.
 
@@ -661,7 +661,7 @@ Removes a entry.
 
 ### every
 
-[src/HashGrid.js:268-301](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/HashGrid.js#L268-L301 "Source code on GitHub")
+[src/HashGrid.js:268-301](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/HashGrid.js#L268-L301 "Source code on GitHub")
 
 Iterates entries that may overlap with bounds. Cancellable.
 
@@ -677,7 +677,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ## TreeBucket
 
-[src/TreeBucket.js:31-221](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/TreeBucket.js#L31-L221 "Source code on GitHub")
+[src/TreeBucket.js:31-221](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/TreeBucket.js#L31-L221 "Source code on GitHub")
 
 TreeBucket.
 
@@ -691,25 +691,25 @@ The class that actually contains the data
 
 ### updateQuadCache
 
-[src/TreeBucket.js:64-76](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/TreeBucket.js#L64-L76 "Source code on GitHub")
+[src/TreeBucket.js:64-76](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/TreeBucket.js#L64-L76 "Source code on GitHub")
 
 Update QuadCache with appropriate child buckets.
 
 ### add
 
-[src/TreeBucket.js:81-84](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/TreeBucket.js#L81-L84 "Source code on GitHub")
+[src/TreeBucket.js:81-84](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/TreeBucket.js#L81-L84 "Source code on GitHub")
 
 Increments a counter and propagates it upwards.
 
 ### subtract
 
-[src/TreeBucket.js:89-92](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/TreeBucket.js#L89-L92 "Source code on GitHub")
+[src/TreeBucket.js:89-92](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/TreeBucket.js#L89-L92 "Source code on GitHub")
 
 Decrements a counter and propagates it upwards.
 
 ### getQuad
 
-[src/TreeBucket.js:99-135](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/TreeBucket.js#L99-L135 "Source code on GitHub")
+[src/TreeBucket.js:99-135](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/TreeBucket.js#L99-L135 "Source code on GitHub")
 
 Returns the quads that collide with the bounding box. Returns -1 if bounds is completely enclosing bucket.
 
@@ -721,7 +721,7 @@ Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
 ### \_every
 
-[src/TreeBucket.js:145-153](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/TreeBucket.js#L145-L153 "Source code on GitHub")
+[src/TreeBucket.js:145-153](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/TreeBucket.js#L145-L153 "Source code on GitHub")
 
 Internal method that iterates through the items contained in the bucket while filtering non-unique entries.
 
@@ -736,7 +736,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ### every
 
-[src/TreeBucket.js:162-173](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/TreeBucket.js#L162-L173 "Source code on GitHub")
+[src/TreeBucket.js:162-173](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/TreeBucket.js#L162-L173 "Source code on GitHub")
 
 Recursive method that iterates through entries that may collide with the specified bounds.
 
@@ -750,7 +750,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ### everyAll
 
-[src/TreeBucket.js:181-189](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/TreeBucket.js#L181-L189 "Source code on GitHub")
+[src/TreeBucket.js:181-189](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/TreeBucket.js#L181-L189 "Source code on GitHub")
 
 Recursive method that iterates through all entries contained in this bucket and its children.
 
@@ -763,7 +763,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ### remove
 
-[src/TreeBucket.js:196-207](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/TreeBucket.js#L196-L207 "Source code on GitHub")
+[src/TreeBucket.js:196-207](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/TreeBucket.js#L196-L207 "Source code on GitHub")
 
 Removes a entry
 
@@ -774,7 +774,7 @@ Removes a entry
 
 ### set
 
-[src/TreeBucket.js:215-220](https://andrews54757@github.com/AJS-development/HashBounds/blob/8b273d7b0bdc231b48bd67b4947b3917fc2ad090/src/TreeBucket.js#L215-L220 "Source code on GitHub")
+[src/TreeBucket.js:215-220](https://andrews54757@github.com/AJS-development/HashBounds/blob/340acee586495137485ad37ab378f2a2ad178c8c/src/TreeBucket.js#L215-L220 "Source code on GitHub")
 
 Sets a entry
 

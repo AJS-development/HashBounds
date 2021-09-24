@@ -28,7 +28,7 @@
  *
  * The class that actually contains the data
  */
-export default class TreeBucket {
+class TreeBucket {
   /**
     * Constructor for TreeBucket
     * @param {number} bucketX
@@ -230,3 +230,5 @@ TreeBucket.QUADS = [
   [0, 2],
   [1, 3]
 ]
+
+module.exports = TreeBucket

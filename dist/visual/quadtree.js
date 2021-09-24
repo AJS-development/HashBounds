@@ -232,4 +232,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         }
     };
 
-    export default Quadtree
+    if (module !== undefined) {
+        module.exports = Quadtree
+    }

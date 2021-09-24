@@ -1,6 +1,6 @@
-import HashBounds from '../src/HashBounds'
-import Twister from './twister'
-import Quadtree from '../dist/visual/quadtree'
+const HashBounds = require('../index.js')
+const Twister = require('./twister.js')
+const Quadtree = require('../dist/visual/quadtree.js')
 
 describe('HashBounds Bounding Box Methods', () => {
   test('ConvertBounds Min/Max Input', () => {

@@ -69,7 +69,7 @@
  * @returns {boolean} - Return true to continue iteration, false to cancel.
  */
 
-import HashGrid from './HashGrid.js'
+const HashGrid = require('./HashGrid.js')
 
 /**
  * HashBounds
@@ -77,7 +77,7 @@ import HashGrid from './HashGrid.js'
  * Stores/Organizes arbitrary objects with 2d bounding box data in the form of a spatial grid tree that is quick to query.
  * It is particularily efficient when objects have varying sizes. Constant time insertion and removal, and n log n search.
  */
-export default class HashBounds {
+class HashBounds {
   /**
     * Initialize a HashBounds instance
     * @param {number} minSize - The size of the smallest grid cell.
@@ -456,3 +456,5 @@ HashBounds.convertBounds = function (bounds) {
     throw new Error('Invalid bounds!')
   }
 }
+
+module.exports = HashBounds

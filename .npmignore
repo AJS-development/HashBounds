@@ -3,7 +3,7 @@ node_modules
 out
 dist
 tests
-build.cjs
+build.js
 .eslintrc.json
 package
 coverage

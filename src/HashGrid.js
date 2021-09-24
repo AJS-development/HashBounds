@@ -23,7 +23,7 @@
     SOFTWARE.
 */
 
-import TreeBucket from './TreeBucket.js'
+const TreeBucket = require('./TreeBucket.js')
 
 /**
  * HashGrid.
@@ -31,7 +31,7 @@ import TreeBucket from './TreeBucket.js'
  * A doubly linked 2d spatial hash/grid which stores TreeBuckets. Multiple grids are typically used by HashBounds.
  * Allows for constant time insertion and deletion by using Math.floor(X / gridSize).
  */
-export default class HashGrid {
+class HashGrid {
   /**
     * HashGrid constructor
     * @param {number} bucketSize - The size of the buckets
@@ -300,3 +300,5 @@ export default class HashGrid {
     return true
   }
 }
+
+module.exports = HashGrid

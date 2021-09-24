@@ -100,12 +100,12 @@ files = Glob(files.map((f) => {
     return __dirname + "/" + f;
 })).filter((v, i, a) => a.indexOf(v) === i).map((file) => {
     var dt = fs.readFileSync(file, "utf8");
-    var ind = dt.indexOf("export default ");
+    var ind = dt.indexOf("class ");
     var ind2 = dt.lastIndexOf('/**', ind);
     var cutoff = Math.max(ind2 != -1 ? ind2 : ind, 0);
 
     // "// " + file.replace(__dirname + "/src/", "")
-    return "\n" + dt.substring(cutoff).replace("export default ", "");
+    return "\n" + dt.substring(cutoff).split("module.exports")[0];
 });
 
 var out = files.join("");

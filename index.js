@@ -1,3 +1,1 @@
-import HashBounds from './src/HashBounds.js'
-
-export default HashBounds
+module.exports = require('./src/HashBounds.js')

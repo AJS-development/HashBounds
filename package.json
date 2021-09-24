@@ -1,6 +1,6 @@
 {
     "name": "hashbounds",
-    "version": "5.0.2",
+    "version": "5.0.3",
     "description": "Collision detection optimized 2d datastructure for usage in games",
     "main": "index.js",
     "repository": {
@@ -24,9 +24,7 @@
         "lint": "eslint .",
         "build": "node build.js"
     },
-    "type": "module",
     "devDependencies": {
-        "@babel/plugin-transform-modules-commonjs": "^7.15.4",
         "@types/jest": "^27.0.2",
         "eslint": "^7.32.0",
         "eslint-config-standard": "^16.0.3",
