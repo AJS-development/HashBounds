@@ -79,7 +79,7 @@ function Glob(files) {
 
 function compile(code, callback) {
     const ClosureCompiler = require("google-closure-compiler").compiler;
-    
+
     const closureCompiler = new ClosureCompiler({
         js: code,
         compilation_level: "SIMPLE",
@@ -101,11 +101,11 @@ files = Glob(files.map((f) => {
 })).filter((v, i, a) => a.indexOf(v) === i).map((file) => {
     var dt = fs.readFileSync(file, "utf8");
     var ind = dt.indexOf("export default ");
-    var ind2 = dt.lastIndexOf('/**',ind);
+    var ind2 = dt.lastIndexOf('/**', ind);
     var cutoff = Math.max(ind2 != -1 ? ind2 : ind, 0);
 
     // "// " + file.replace(__dirname + "/src/", "")
-    return "\n" + dt.substring(cutoff).replace("export default ","");
+    return "\n" + dt.substring(cutoff).replace("export default ", "");
 });
 
 var out = files.join("");
@@ -141,8 +141,36 @@ var top = `\
 fs.writeFileSync(__dirname + "/dist/HashBounds.js", top + out);
 
 console.log("Built HashBounds.js. Minifying...");
+const exec = require('child_process').exec;
 
 compile(__dirname + "/dist/HashBounds.js", function (compiled) {
     fs.writeFileSync(__dirname + "/dist/HashBounds.min.js", top + compiled);
     console.log("Compiled " + files.length + " files");
+    exec('eslint .',
+        (error, stdout, stderr) => {
+            console.log(stderr);
+            console.log(stdout);
+
+            if (error !== null) {
+                console.log(`error: ${error}`);
+            }
+            exec('jest --coverage',
+                (error, stdout, stderr) => {
+                    console.log(stderr);
+                    console.log(stdout);
+
+                    if (error !== null) {
+                        console.log(`error: ${error}`);
+                    }
+
+                    exec('documentation readme index.js --section=API --github',
+                        (error, stdout, stderr) => {
+                            console.log(stderr);
+                            if (error !== null) {
+                                console.log(`error: ${error}`);
+                            }
+                        });
+                });
+        });
 });
+

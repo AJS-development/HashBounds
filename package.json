@@ -1,7 +1,7 @@
 {
     "name": "hashbounds",
-    "version": "5.0.0",
-    "description": "A spatial partitioning system",
+    "version": "5.0.1",
+    "description": "Collision detection optimized 2d datastructure for usage in games",
     "main": "index.js",
     "repository": {
         "type": "git",
@@ -19,12 +19,20 @@
         "url": "https://github.com/AJS-development/HashBounds/issues"
     },
     "homepage": "https://github.com/AJS-development/HashBounds#readme",
+    "scripts": {
+        "test": "jest",
+        "lint": "eslint .",
+        "build": "node build.js"
+    },
     "devDependencies": {
+        "@babel/plugin-transform-modules-commonjs": "^7.15.4",
+        "@types/jest": "^27.0.2",
         "eslint": "^7.32.0",
         "eslint-config-standard": "^16.0.3",
         "eslint-plugin-import": "^2.24.2",
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-promise": "^5.1.0",
-        "google-closure-compiler": "^20210907.0.0"
+        "google-closure-compiler": "^20210907.0.0",
+        "jest": "^27.2.1"
     }
 }

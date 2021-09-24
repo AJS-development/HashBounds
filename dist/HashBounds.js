@@ -1,11 +1,11 @@
 /*
- Hashbounds: A spatial partitioning system
+ Hashbounds: Collision detection optimized 2d datastructure for usage in games
 
  Author: Andrews54757
  License: MIT (https://github.com/ThreeLetters/HashBounds/blob/master/LICENSE)
  Source: https://github.com/ThreeLetters/HashBounds
- Build: v5.0.0
- Built on: 22/09/2021
+ Build: v5.0.1
+ Built on: 24/09/2021
 */
 
 
@@ -235,7 +235,7 @@ class HashGrid {
     this.LEVEL = level
     this.PREV_GRID = undefined // Smaller grid
     this.NEXT_GRID = undefined // Larger grid
-    this.BUCKET_GRID = []
+    this.BUCKET_GRID = {}
   }
 
   /**
@@ -248,8 +248,8 @@ class HashGrid {
     const minSizeX = Math.floor(initialBounds.minX * this.BUCKETSIZE_INV)
     const minSizeY = Math.floor(initialBounds.minY * this.BUCKETSIZE_INV)
 
-    for (let bucketX = minSizeX; bucketX < maxSizeX; ++bucketX) {
-      for (let bucketY = minSizeY; bucketY < maxSizeY; ++bucketY) {
+    for (let bucketX = minSizeX; bucketX <= maxSizeX; ++bucketX) {
+      for (let bucketY = minSizeY; bucketY <= maxSizeY; ++bucketY) {
         this.createBucket(bucketX, bucketY)
       }
     }
@@ -263,7 +263,7 @@ class HashGrid {
   deleteBucket (bucketX, bucketY) {
     const map2 = this.BUCKET_GRID[bucketX]
     delete map2[bucketY]
-    if (map2.length === 0) {
+    if (Object.keys(map2).length === 0) {
       delete this.BUCKET_GRID[bucketX]
     }
   }
@@ -277,7 +277,7 @@ class HashGrid {
   setBucket (bucketX, bucketY, bucket) {
     let map2 = this.BUCKET_GRID[bucketX]
     if (map2 === undefined) {
-      map2 = []
+      map2 = {}
       this.BUCKET_GRID[bucketX] = map2
     }
     map2[bucketY] = bucket
@@ -330,11 +330,15 @@ class HashGrid {
     * Prunes empty buckets.
     */
   prune () {
-    this.BUCKET_GRID.forEach((dataX) => {
-      return dataX.forEach((bucket) => {
-        if (bucket.COUNTER === 0) { this.pruneBucket(bucket) }
-      })
-    })
+    for (const x in this.BUCKET_GRID) {
+      const dataX = this.BUCKET_GRID[x]
+      for (const y in dataX) {
+        const bucket = dataX[y]
+        if (bucket.COUNTER === 0) {
+          this.pruneBucket(bucket)
+        }
+      }
+    }
   }
 
   /**
@@ -346,14 +350,14 @@ class HashGrid {
       if (bucket.PARENT.COUNTER === 0) {
         this.NEXT_GRID.pruneBucket(bucket.PARENT)
       } else {
-        const index = (bucket.X % 2) * 2 + (bucket.Y % 2)
+        const index = (bucket.BUCKET_X % 2) * 2 + (bucket.BUCKET_Y % 2)
         bucket.PARENT.CHILDREN[index] = undefined
         bucket.PARENT.updateQuadCache()
       }
     }
 
     bucket.COUNTER = -1
-    this.deleteBucket(bucket.X, bucket.Y)
+    this.deleteBucket(bucket.BUCKET_X, bucket.BUCKET_Y)
   }
 
   /**
@@ -455,11 +459,16 @@ class HashGrid {
     */
   every (bounds, call, QID) {
     if (bounds === undefined) {
-      return this.BUCKET_GRID.every((dataX) => {
-        return dataX.every((bucket) => {
-          return bucket.everyAll(call, QID)
-        })
-      })
+      for (const x in this.BUCKET_GRID) {
+        const dataX = this.BUCKET_GRID[x]
+        for (const y in dataX) {
+          const bucket = dataX[y]
+          if (!bucket.everyAll(call, QID)) {
+            return false
+          }
+        }
+      }
+      return true
     }
     const x1 = bounds.minX
     const y1 = bounds.minY
@@ -510,7 +519,7 @@ class HashBounds {
     this.MIN_SIZE_INV = 1 / this.MIN_SIZE
     this.LEVEL_COUNT = levelCount
     this.INITIAL_BOUNDS = initialBounds || {}
-    this.convertBounds(this.INITIAL_BOUNDS)
+    HashBounds.convertBounds(this.INITIAL_BOUNDS)
     this.LEVELS = []
     this.BASE = undefined
     this.LOG2CACHE = undefined
@@ -525,9 +534,10 @@ class HashBounds {
     */
   getQueryID () {
     if (this.QUERYID >= 4294967295) {
-      this.QUERYID = 0
-    } else this.QUERYID++
-    return this.QUERYID
+      this.QUERYID = -1
+      this.forEach((obj) => {})
+    }
+    return this.QUERYID++
   }
 
   /**
@@ -604,7 +614,7 @@ class HashBounds {
     if (!this.contains(entry)) {
       throw new Error('ERR: Entry is not in this hash!')
     }
-    this.convertBounds(bounds)
+    HashBounds.convertBounds(bounds)
     const cache = this.getHashCache(entry)
     const prev = cache.cachedIndex
     const level = this.getLevel(bounds, cache)
@@ -665,10 +675,11 @@ class HashBounds {
           hashID: this.ID,
           isInHash: false
         }
+        entry._HashBoundsTempCheck = -1
       }
     }
 
-    this.convertBounds(bounds)
+    HashBounds.convertBounds(bounds)
     const cache = this.getHashCache(entry)
     cache.isInHash = true
     this.LEVELS[this.getLevel(bounds, cache)].insert(entry, bounds, cache)
@@ -711,7 +722,7 @@ class HashBounds {
     * @returns {Array} An array of entries.
     */
   toArray (bounds) {
-    if (bounds !== undefined) { this.convertBounds(bounds) }
+    if (bounds !== undefined) { HashBounds.convertBounds(bounds) }
 
     const arr = []
     this.BASE.every(bounds, (obj) => {
@@ -735,7 +746,7 @@ class HashBounds {
     if (call === undefined) {
       call = bounds
       bounds = undefined
-    } else if (bounds !== undefined) { this.convertBounds(bounds) }
+    } else if (bounds !== undefined) { HashBounds.convertBounds(bounds) }
 
     return this.BASE.every(bounds, call, this.getQueryID())
   }
@@ -752,7 +763,7 @@ class HashBounds {
     if (call === undefined) {
       call = bounds
       bounds = undefined
-    } else if (bounds !== undefined) { this.convertBounds(bounds) }
+    } else if (bounds !== undefined) { HashBounds.convertBounds(bounds) }
 
     this.BASE.every(bounds, (obj) => {
       call(obj)
@@ -761,102 +772,109 @@ class HashBounds {
   }
 
   /**
-    * Converts a min-max 2d bound to pos-size format in place
-    * @param {Bounds} bounds
-    */
-  mmToPS (bounds) {
-    bounds.x = bounds.minX
-    bounds.y = bounds.minY
-    bounds.width = bounds.maxX - bounds.minX
-    bounds.height = bounds.maxY - bounds.minY
-  }
-
-  /**
-    * Converts a pos-size 2d bound to min-max format in place
-    * @param {Bounds} bounds
-    */
-  psToMM (bounds) {
-    bounds.minX = bounds.x
-    bounds.minY = bounds.y
-
-    bounds.maxX = bounds.x + bounds.width
-    bounds.maxY = bounds.y + bounds.height
-  }
-
-  /**
-    * Checks if two 2d bounding boxes are overlapping.
-    * @param {Bounds} bounds1
-    * @param {Bounds} bounds2
-    * @returns {boolean}
-    */
-  boundsOverlap (bounds1, bounds2) {
-    return !(bounds1.minX > bounds2.maxX || bounds1.minY > bounds2.maxY || bounds1.maxX < bounds2.minX || bounds1.maxY < bounds2.minY)
-  }
-
-  /**
-    * Checks if one 2d bounding box is fully contained in another.
-    * @param {Bounds} bounds1 - Inner box
-    * @param {Bounds} bounds2 - Outer box
-    * @returns {boolean}
-    */
-  boundsContains (bounds1, bounds2) {
-    return bounds1.minX >= bounds2.minX && bounds1.maxX <= bounds2.maxX && bounds1.minY >= bounds2.minY && bounds1.maxY <= bounds2.maxY
-  }
-
-  /**
     * Check if bounds exceeds the pre-initialized size of the datastructure
     * @param {Bounds} bounds
     * @returns {boolean}
     */
-  checkBoundsMax (bounds) {
-    this.convertBounds(bounds)
-    return this.boundsContains(bounds, this.INITIAL_BOUNDS)
-  }
-
-  /**
-    * Truncates bounds to fit a certain area
-    * @param {Bounds} bounds
-    * @throws Will throw error if bounds are unformatted.
-    */
-  truncateBounds (bounds, minX, minY, maxX, maxY) {
-    if (bounds.TYPE === 1) {
-      bounds.x = Math.min(bounds.x, minX)
-      bounds.y = Math.min(bounds.y, minY)
-
-      if (bounds.x + bounds.width > maxX) {
-        bounds.width = maxX - bounds.x
-      }
-      if (bounds.y + bounds.height > maxY) {
-        bounds.height = maxY - bounds.y
-      }
-    } else if (bounds.TYPE === 2) {
-      bounds.minX = Math.max(bounds.minX, minX)
-      bounds.minY = Math.max(bounds.minY, minY)
-      bounds.maxX = Math.min(bounds.maxX, maxX)
-      bounds.maxY = Math.min(bounds.maxY, maxY)
-    } else {
-      throw new Error('ERR: Bound not formatted! Please make sure bounds were put through the convertBounds function')
-    }
-  }
-
-  /**
-    * Formats/converts 2d bounding boxes.
-    * @param {Bounds} bounds
-    */
-  convertBounds (bounds) {
-    if (bounds.TYPE === undefined) {
-      if (bounds.x !== undefined) {
-        this.psToMM(bounds)
-        bounds.TYPE = 1
-      } else {
-        this.mmToPS(bounds)
-        bounds.TYPE = 2
-      }
-    } else if (bounds.TYPE === 1) {
-      this.psToMM(bounds)
-    } else if (bounds.TYPE === 2) {
-      this.mmToPS(bounds)
-    }
+  boundsFitsInHash (bounds) {
+    HashBounds.convertBounds(bounds)
+    return HashBounds.boundsContains(bounds, this.INITIAL_BOUNDS)
   }
 }
 HashBounds.LAST_ID = 0
+
+/**
+    * Converts a min-max 2d bound to pos-size format in place
+    * @param {Bounds} bounds
+    */
+HashBounds.mmToPS = function (bounds) {
+  bounds.x = bounds.minX
+  bounds.y = bounds.minY
+  bounds.width = bounds.maxX - bounds.minX
+  bounds.height = bounds.maxY - bounds.minY
+}
+
+/**
+  * Converts a pos-size 2d bound to min-max format in place
+  * @param {Bounds} bounds
+  */
+HashBounds.psToMM = function (bounds) {
+  bounds.minX = bounds.x
+  bounds.minY = bounds.y
+
+  bounds.maxX = bounds.x + bounds.width
+  bounds.maxY = bounds.y + bounds.height
+}
+
+/**
+  * Checks if two 2d bounding boxes are overlapping.
+  * @param {Bounds} bounds1
+  * @param {Bounds} bounds2
+  * @returns {boolean}
+  */
+HashBounds.boundsOverlap = function (bounds1, bounds2) {
+  return !(bounds1.minX > bounds2.maxX || bounds1.minY > bounds2.maxY || bounds1.maxX < bounds2.minX || bounds1.maxY < bounds2.minY)
+}
+
+/**
+  * Checks if one 2d bounding box is fully contained in another.
+  * @param {Bounds} bounds1 - Inner box
+  * @param {Bounds} bounds2 - Outer box
+  * @returns {boolean}
+  */
+HashBounds.boundsContains = function (bounds1, bounds2) {
+  return bounds1.minX >= bounds2.minX && bounds1.maxX <= bounds2.maxX && bounds1.minY >= bounds2.minY && bounds1.maxY <= bounds2.maxY
+}
+
+/**
+  * Truncates bounds to fit a certain area
+  * @param {Bounds} bounds
+  * @param {number} minX
+  * @param {number} minY
+  * @param {number} maxX
+  * @param {number} maxY
+  * @throws Will throw error if bounds are unformatted.
+  */
+HashBounds.truncateBounds = function (bounds, minX, minY, maxX, maxY) {
+  if (bounds.TYPE === 1) {
+    bounds.x = Math.max(bounds.x, minX)
+    bounds.y = Math.max(bounds.y, minY)
+
+    if (bounds.x + bounds.width > maxX) {
+      bounds.width = maxX - bounds.x
+    }
+    if (bounds.y + bounds.height > maxY) {
+      bounds.height = maxY - bounds.y
+    }
+  } else if (bounds.TYPE === 2) {
+    bounds.minX = Math.max(bounds.minX, minX)
+    bounds.minY = Math.max(bounds.minY, minY)
+    bounds.maxX = Math.min(bounds.maxX, maxX)
+    bounds.maxY = Math.min(bounds.maxY, maxY)
+  } else {
+    throw new Error('ERR: Bound not formatted! Please make sure bounds were put through the convertBounds function')
+  }
+}
+
+/**
+  * Formats/converts 2d bounding boxes.
+  * @param {Bounds} bounds
+  * @throws Error if invalid
+  */
+HashBounds.convertBounds = function (bounds) {
+  if (bounds.TYPE === undefined) {
+    if (bounds.x !== undefined) {
+      HashBounds.psToMM(bounds)
+      bounds.TYPE = 1
+    } else {
+      HashBounds.mmToPS(bounds)
+      bounds.TYPE = 2
+    }
+  } else if (bounds.TYPE === 1) {
+    HashBounds.psToMM(bounds)
+  } else if (bounds.TYPE === 2) {
+    HashBounds.mmToPS(bounds)
+  } else {
+    throw new Error('Invalid bounds!')
+  }
+}

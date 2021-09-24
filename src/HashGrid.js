@@ -43,7 +43,7 @@ export default class HashGrid {
     this.LEVEL = level
     this.PREV_GRID = undefined // Smaller grid
     this.NEXT_GRID = undefined // Larger grid
-    this.BUCKET_GRID = []
+    this.BUCKET_GRID = {}
   }
 
   /**
@@ -56,8 +56,8 @@ export default class HashGrid {
     const minSizeX = Math.floor(initialBounds.minX * this.BUCKETSIZE_INV)
     const minSizeY = Math.floor(initialBounds.minY * this.BUCKETSIZE_INV)
 
-    for (let bucketX = minSizeX; bucketX < maxSizeX; ++bucketX) {
-      for (let bucketY = minSizeY; bucketY < maxSizeY; ++bucketY) {
+    for (let bucketX = minSizeX; bucketX <= maxSizeX; ++bucketX) {
+      for (let bucketY = minSizeY; bucketY <= maxSizeY; ++bucketY) {
         this.createBucket(bucketX, bucketY)
       }
     }
@@ -71,7 +71,7 @@ export default class HashGrid {
   deleteBucket (bucketX, bucketY) {
     const map2 = this.BUCKET_GRID[bucketX]
     delete map2[bucketY]
-    if (map2.length === 0) {
+    if (Object.keys(map2).length === 0) {
       delete this.BUCKET_GRID[bucketX]
     }
   }
@@ -85,7 +85,7 @@ export default class HashGrid {
   setBucket (bucketX, bucketY, bucket) {
     let map2 = this.BUCKET_GRID[bucketX]
     if (map2 === undefined) {
-      map2 = []
+      map2 = {}
       this.BUCKET_GRID[bucketX] = map2
     }
     map2[bucketY] = bucket
@@ -138,11 +138,15 @@ export default class HashGrid {
     * Prunes empty buckets.
     */
   prune () {
-    this.BUCKET_GRID.forEach((dataX) => {
-      return dataX.forEach((bucket) => {
-        if (bucket.COUNTER === 0) { this.pruneBucket(bucket) }
-      })
-    })
+    for (const x in this.BUCKET_GRID) {
+      const dataX = this.BUCKET_GRID[x]
+      for (const y in dataX) {
+        const bucket = dataX[y]
+        if (bucket.COUNTER === 0) {
+          this.pruneBucket(bucket)
+        }
+      }
+    }
   }
 
   /**
@@ -154,14 +158,14 @@ export default class HashGrid {
       if (bucket.PARENT.COUNTER === 0) {
         this.NEXT_GRID.pruneBucket(bucket.PARENT)
       } else {
-        const index = (bucket.X % 2) * 2 + (bucket.Y % 2)
+        const index = (bucket.BUCKET_X % 2) * 2 + (bucket.BUCKET_Y % 2)
         bucket.PARENT.CHILDREN[index] = undefined
         bucket.PARENT.updateQuadCache()
       }
     }
 
     bucket.COUNTER = -1
-    this.deleteBucket(bucket.X, bucket.Y)
+    this.deleteBucket(bucket.BUCKET_X, bucket.BUCKET_Y)
   }
 
   /**
@@ -263,11 +267,16 @@ export default class HashGrid {
     */
   every (bounds, call, QID) {
     if (bounds === undefined) {
-      return this.BUCKET_GRID.every((dataX) => {
-        return dataX.every((bucket) => {
-          return bucket.everyAll(call, QID)
-        })
-      })
+      for (const x in this.BUCKET_GRID) {
+        const dataX = this.BUCKET_GRID[x]
+        for (const y in dataX) {
+          const bucket = dataX[y]
+          if (!bucket.everyAll(call, QID)) {
+            return false
+          }
+        }
+      }
+      return true
     }
     const x1 = bounds.minX
     const y1 = bounds.minY

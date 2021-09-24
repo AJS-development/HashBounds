@@ -28,8 +28,6 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-;
-(function (w, M) {
 
     /*
      * Quadtree Constructor
@@ -61,10 +59,10 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
         var t = this,
             nextLevel = t.level + 1,
-            subWidth = M.round(t.bounds.width / 2),
-            subHeight = M.round(t.bounds.height / 2),
-            x = M.round(t.bounds.x),
-            y = M.round(t.bounds.y);
+            subWidth = Math.round(t.bounds.width / 2),
+            subHeight = Math.round(t.bounds.height / 2),
+            x = Math.round(t.bounds.x),
+            y = Math.round(t.bounds.y);
 
         //top right node
         t.nodes[0] = new Quadtree({
@@ -234,7 +232,4 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         }
     };
 
-    //make Quadtree available in the global namespace
-    w.Quadtree = Quadtree;
-
-})(window, Math);
+    export default Quadtree
