@@ -6,3 +6,6 @@ tests
 build.js
 .eslintrc.json
 package
+coverage
+.vscode
+.babelrc.json
